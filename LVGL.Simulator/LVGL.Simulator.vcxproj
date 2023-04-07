@@ -3,6 +3,24 @@
   <Import Project="Mile.Project.Windows.Legacy\Mile.Project.Platform.Win32.props" />
   <Import Project="Mile.Project.Windows.Legacy\Mile.Project.Platform.x64.props" />
   <Import Project="Mile.Project.Windows.Legacy\Mile.Project.Platform.ARM64.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3CA6E070-4AC1-475E-BB17-CF29AE4806DF}</ProjectGuid>
     <RootNamespace>LVGL</RootNamespace>
@@ -30,6 +48,15 @@
   <Import Project="LVGL.Portable.vcxitems" />
   <Import Project="LVGL.Drivers.vcxitems" />
   <ItemGroup>
+    <ClInclude Include="..\main\application_tile.h" />
+    <ClInclude Include="..\main\app_about.h" />
+    <ClInclude Include="..\main\app_file_manager.h" />
+    <ClInclude Include="..\main\app_music.h" />
+    <ClInclude Include="..\main\assets\assets.h" />
+    <ClInclude Include="..\main\home_tile.h" />
+    <ClInclude Include="..\main\main_screen.h" />
+    <ClInclude Include="..\main\performance_tile.h" />
+    <ClInclude Include="..\main\status_bar.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +70,24 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\main\app_about.c" />
+    <ClCompile Include="..\main\application_tile.c" />
+    <ClCompile Include="..\main\app_file_manager.c" />
+    <ClCompile Include="..\main\app_music.c" />
+    <ClCompile Include="..\main\assets\assets.c" />
+    <ClCompile Include="..\main\assets\fonts\lv_font_jetbrainsmono_16.c" />
+    <ClCompile Include="..\main\assets\fonts\lv_font_jetbrainsmono_60.c" />
+    <ClCompile Include="..\main\assets\fonts\lv_font_oplusans_16.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_about.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_bg.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_pc.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_sun.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_system.c" />
+    <ClCompile Include="..\main\assets\images\lv_img_wifi.c" />
+    <ClCompile Include="..\main\home_tile.c" />
+    <ClCompile Include="..\main\main_screen.c" />
+    <ClCompile Include="..\main\performance_tile.c" />
+    <ClCompile Include="..\main\status_bar.c" />
     <ClCompile Include="LVGL.Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@
 #include "resource.h"
 
 #if _MSC_VER >= 1200
- // Disable compilation warnings.
+// Disable compilation warnings.
 #pragma warning(push)
 // nonstandard extension used : bit field types other than int
 #pragma warning(disable:4214)
@@ -33,6 +33,8 @@
 
 #include <stdio.h>
 
+#include "../main/main_screen.h"
+
 int main()
 {
     lv_init();
@@ -40,14 +42,15 @@ int main()
     if (!lv_win32_init(
         GetModuleHandleW(NULL),
         SW_SHOW,
-        800,
-        480,
+        320,
+        240,
         LoadIconW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_LVGL))))
     {
         return -1;
     }
 
     lv_win32_add_all_input_devices_to_group(NULL);
+
 
     /*
      * Demos, benchmarks, and tests.
@@ -60,9 +63,9 @@ int main()
     // my freetype application
     // ----------------------------------
 
-    ///*Init freetype library
-    // *Cache max 64 faces and 1 size*/
-    //lv_freetype_init(64, 1, 0);
+    /*Init freetype library
+     *Cache max 64 faces and 1 size*/
+    lv_freetype_init(64, 1, 0);
 
     ///*Create a font*/
     //static lv_ft_info_t info;
@@ -71,21 +74,11 @@ int main()
     //info.style = FT_FONT_STYLE_NORMAL;
     //lv_ft_font_init(&info);
 
-    ///*Create style with the new font*/
-    //static lv_style_t style;
-    //lv_style_init(&style);
-    //lv_style_set_text_font(&style, info.font);
-
-    ///*Create a label with the new style*/
-    //lv_obj_t* label = lv_label_create(lv_scr_act());
-    //lv_obj_add_style(label, &style, 0);
-    //lv_label_set_text(label, "FreeType Arial Test");
-
     // ----------------------------------
     // my Win32 filesystem driver application
     // ----------------------------------
 
-    /*::lv_fs_win32_init();
+    lv_fs_win32_init();
 
     lv_fs_dir_t d;
     if (lv_fs_dir_open(&d, "/") == LV_FS_RES_OK)
@@ -98,13 +91,16 @@ int main()
         }
 
         lv_fs_dir_close(&d);
-    }*/
+    }
+
+
+    main_screen_init();
 
     // ----------------------------------
     // Demos from lv_examples
     // ----------------------------------
 
-    lv_demo_widgets();           // ok
+    // lv_demo_widgets();           // ok
     // lv_demo_benchmark();
     // lv_demo_keypad_encoder();    // ok
     // lv_demo_music();             // removed from repository

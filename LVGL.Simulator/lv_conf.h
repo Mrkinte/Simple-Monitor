@@ -93,7 +93,7 @@
 
 /*Default Dot Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
  *(Not so important, you can adjust it to modify default sizes and spaces)*/
-#define LV_DPI_DEF 130     /*[px/inch]*/
+#define LV_DPI_DEF 100     /*[px/inch]*/
 
 /*=======================
  * FEATURE CONFIGURATION
@@ -236,7 +236,7 @@
 #define LV_USE_REFR_DEBUG 0
 
 /*Change the built in (v)snprintf functions*/
-#define LV_SPRINTF_CUSTOM 0
+#define LV_SPRINTF_CUSTOM 1
 #if LV_SPRINTF_CUSTOM
     #define LV_SPRINTF_INCLUDE <stdio.h>
     #define lv_snprintf  snprintf
@@ -340,7 +340,7 @@
 #define LV_FONT_CUSTOM_DECLARE
 
 /*Always set a default font*/
-#define LV_FONT_DEFAULT &lv_font_montserrat_14
+#define LV_FONT_DEFAULT &lv_font_montserrat_16
 
 /*Enable handling large font and/or fonts with a lot of characters.
  *The limit depends on the font size, font face and bpp.
@@ -544,18 +544,38 @@
  * 3rd party libraries
  *--------------------*/
 
-/*File system interfaces for common APIs
- *To enable set a driver letter for that API*/
-#define LV_USE_FS_STDIO '\0'        /*Uses fopen, fread, etc*/
-//#define LV_FS_STDIO_PATH "/home/john/"    /*Set the working directory. If commented it will be "./" */
+ /*File system interfaces for common APIs */
 
-#define LV_USE_FS_POSIX '\0'        /*Uses open, read, etc*/
-//#define LV_FS_POSIX_PATH "/home/john/"    /*Set the working directory. If commented it will be "./" */
+ /*API for fopen, fread, etc*/
+#define LV_USE_FS_STDIO 0
+#if LV_USE_FS_STDIO
+#define LV_FS_STDIO_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_STDIO_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_STDIO_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#endif
 
-#define LV_USE_FS_WIN32 '/'        /*Uses CreateFile, ReadFile, etc*/
-//#define LV_FS_WIN32_PATH "C:\\Users\\john\\"    /*Set the working directory. If commented it will be ".\\" */
+/*API for open, read, etc*/
+#define LV_USE_FS_POSIX 0
+#if LV_USE_FS_POSIX
+#define LV_FS_POSIX_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_POSIX_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_POSIX_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#endif
 
-#define LV_USE_FS_FATFS '\0'        /*Uses f_open, f_read, etc*/
+/*API for CreateFile, ReadFile, etc*/
+#define LV_USE_FS_WIN32 1
+#if LV_USE_FS_WIN32
+#define LV_FS_WIN32_LETTER '/'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_WIN32_PATH "C:/Users/Marjin/source/repos/Simple Monitor/main/file_system/"         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_WIN32_CACHE_SIZE 1024    /*>0 to cache this number of bytes in lv_fs_read()*/
+#endif
+
+/*API for FATFS (needs to be added separately). Uses f_open, f_read, etc*/
+#define LV_USE_FS_FATFS 0
+#if LV_USE_FS_FATFS
+#define LV_FS_FATFS_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_FATFS_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#endif
 
 /*PNG decoder library*/
 #define LV_USE_PNG 0
@@ -574,7 +594,7 @@
 #define LV_USE_QRCODE 0
 
 /*FreeType library*/
-#define LV_USE_FREETYPE 0
+#define LV_USE_FREETYPE 1
 #if LV_USE_FREETYPE
     /*Memory used by FreeType to cache characters [bytes] (-1: no caching)*/
     #define LV_FREETYPE_CACHE_SIZE (16 * 1024)

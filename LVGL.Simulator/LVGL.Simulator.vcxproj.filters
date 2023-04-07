@@ -5,6 +5,33 @@
   <ItemGroup>
     <ClInclude Include="lv_conf.h" />
     <ClInclude Include="lv_drv_conf.h" />
+    <ClInclude Include="..\main\home_tile.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\main_screen.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\performance_tile.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\status_bar.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\assets\assets.h">
+      <Filter>main\assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\application_tile.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\app_music.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\app_about.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\app_file_manager.h">
+      <Filter>main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LVGL.Simulator.manifest" />
@@ -15,6 +42,60 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LVGL.Simulator.cpp" />
+    <ClCompile Include="..\main\home_tile.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\main_screen.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\performance_tile.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\status_bar.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\assets.c">
+      <Filter>main\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\app_about.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\fonts\lv_font_jetbrainsmono_60.c">
+      <Filter>main\assets\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\fonts\lv_font_jetbrainsmono_16.c">
+      <Filter>main\assets\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\fonts\lv_font_oplusans_16.c">
+      <Filter>main\assets\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\application_tile.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\app_music.c">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_wifi.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_bg.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_pc.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_sun.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_about.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\assets\images\lv_img_system.c">
+      <Filter>main\assets\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main\app_file_manager.c">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
@@ -24,5 +105,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="freetype.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{a3efba16-9fc3-4936-ba8e-ff43e58bbe7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\assets">
+      <UniqueIdentifier>{4ccea0f5-1311-4216-b62c-8e07eec372a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\assets\fonts">
+      <UniqueIdentifier>{e4914362-93d7-423e-807f-2c16c5c6cd14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\assets\images">
+      <UniqueIdentifier>{f680fd24-87c1-438e-9848-29bd853b589b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
